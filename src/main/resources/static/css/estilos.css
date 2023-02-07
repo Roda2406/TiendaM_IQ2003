@@ -1,0 +1,116 @@
+/*#elementoUno {
+    color: red;
+}
+
+.ejemploClase {
+    color: blue;
+    font-size: 20px;
+}*/
+
+/*li {
+    color: red;
+}*/
+
+/*Los siguientes elementos se utilizarán en el index*/
+
+/*Opciones del Título de la tienda*/
+#encabezado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8%;
+    width: 100%;
+    background-color: #496D8D;
+    color: white;
+    padding-left: 15px;
+}
+
+/*Opciones del menú (colores y tamaño)*/
+#menu {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    height: 4%;
+    width: 100%;
+    background-color: #51C9D6;
+    color: black;
+    padding-left: 15px;
+}
+
+/*El color de las opciones del menú*/
+#menu a:visited {
+    color: navy;
+}
+
+/*Cuando nos paramos encima de las opciones de menú cambian el color del fondo y de la letra*/
+#menu a:hover {
+    background-color: white;
+    color: black;
+}
+
+/*Barra de productos más vendidos*/
+#barraLateral {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    height: 81%;
+    width: 20%;
+    background-color: #7AD3DD;
+    color: black;
+    padding-left: 15px;
+}
+
+/*Apartado donde está todo el contenido de los productos*/
+#contenido {
+    position: absolute;
+    top: 12%;
+    left: 20.5%;
+    height: 81%;
+    width: 80%;
+    background-color: #1FB9D1;
+    color: black;
+    padding-left: 15px;
+    overflow: auto;
+}
+
+/*Apartado donde está la dirección y correo*/
+#piePagina {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    height: 7%;
+    width: 100%;
+    background-color: #254C52;
+    color: white;
+    padding-left: 15px;
+    text-align: center;
+}
+
+/*Coloca el pie de pagina sin saltos de linea*/
+#piePagina address {
+    display: inline;
+}
+
+/*Le pone color al código y nombre de la linea de productops*/
+#encabezadoTabla{
+    font-size: 20px;
+    background-color: #517073;
+    color: #FFEC0B;
+}
+
+/*le pone color a la primera fila*/
+#tablaResumen tr:nth-child(odd) {
+    background-color: white;
+    color: black;
+}
+
+/*le pone color a la segunda fila*/
+#tablaResumen tr:nth-child(even) {
+    background-color: #85710D;
+    color: white;
+}
+
+#tablaResumen tr{
+    font-size: 25px;
+    font-weight: bolder;
+}
