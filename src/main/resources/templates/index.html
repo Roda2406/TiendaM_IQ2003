@@ -4,6 +4,7 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!--        <div>Saludos desde MVC</div>
@@ -15,33 +16,28 @@
                 <p>Correo <span th:text="${objetoCliente.correo}"></span></p>
                 <p>Teléfono <span th:text="${objetoCliente.telefono}"></span></p>-->
         <header th:replace="layout/plantilla :: header" />
-        <h2>Lista de clienetes</h2>
-        <a th:href="@{/nuevoCliente}">Nuevo cliente</a>
+        <div class="contenido">
+            <h2>Articulos Disponibles</h2>
         <br/>
         <br/>
-        <div th:if="${clientes != null and !clientes.empty}">
+        <div th:if="${articulos != null and !articulos.empty}">
             <table border="1">
                 <thead>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Corre</th>
-                <th>Teléfono</th>
-                <th colspan="2">Acciones</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Acciones</th>
                 </thead>
                 <tbody>
-                    <tr th:each="item: ${clientes}">
-                        <td th:text="${item.nombre}"></td>
-                        <td th:text="${item.apellidos}"></td>
-                        <td th:text="${item.telefono}"></td>
-                        <td th:text="${item.correo}"></td> 
-                        <td><a th:href="@{/modificarCliente/} + ${item.idCliente}">Modificar</a></td>
-                        <td><a th:href="@{/eliminarCliente/} + ${item.idCliente}">Eliminar</a></td>
+                    <tr th:each="item: ${articulos}">
+                        <td th:text="${item.descripcion}"></td>
+                        <td th:text="${#numbers.formatDecimal(item.precio, 3, 2)}"></td>
+                        <td><a th:href="@{/carrito/agregar/} + ${item.idArticulo}">Agregar</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div th:if="${clientes == null or clientes.empty}">
-            La Lista de clientes está vacía...
+        <div th:if="${articulos == null or articulos.empty}">
+            La Lista de articulos está vacía...
         </div>
         <footer th:replace="layout/plantilla :: footer" />
     </body>

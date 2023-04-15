@@ -1,7 +1,7 @@
 package com.TiendaM_IQ2003.controller;
 
-import com.TiendaM_IQ2003.domain.Cliente;
-import com.TiendaM_IQ2003.service.ClienteService;
+import com.TiendaM_IQ2003.domain.Articulo;
+import com.TiendaM_IQ2003.service.ArticuloService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,48 +14,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class IndexController {
 
     @Autowired
-    ClienteService clienteService;
+    ArticuloService articuloService;
 
     @GetMapping("/")
     public String inicio(Model model) {
-
+        log.info("Ahora desde MVC");
 //        log.info("Ahora desde MVC");
 //        model.addAttribute("Mensaje","Hola desde el controllador");
 //        
-//        Cliente cliente = new Cliente("Jonathan", "Brenes Blanco", "jbrenesbl@gmail.com", "88447799");
-//        model.addAttribute("objetoCliente", cliente);
+//        Articulo articulo = new Articulo("Jonathan", "Brenes Blanco", "jbrenesbl@gmail.com", "88447799");
+//        model.addAttribute("objetoArticulo", articulo);
 //        
-//        Cliente cliente2 = new Cliente("Juan", "Brenes Blanco", "jbrenesbl@gmail.com", "88447799");
-//        Cliente cliente3 = new Cliente("Pedro", "Brenes Blanco", "jbrenesbl@gmail.com", "88447799");
+//        Articulo articulo2 = new Articulo("Juan", "Brenes Blanco", "jbrenesbl@gmail.com", "88447799");
+//        Articulo articulo3 = new Articulo("Pedro", "Brenes Blanco", "jbrenesbl@gmail.com", "88447799");
 //        
-//        List<Cliente> clientes = Arrays.asList(cliente,cliente2,cliente3);
-        var clientes = clienteService.getClientes();
-        model.addAttribute("clientes", clientes);
+//        List<Articulo> articulos = Arrays.asList(articulo,articulo2,articulo3);
+        
+        var articulos = articuloService.getArticulos(true);
+        model.addAttribute("articulos", articulos);
 
         return "index";
     }
 
-    @GetMapping("/nuevoCliente")
-    public String nuevoCliente(Cliente cliente) {
-        return "modificarCliente";
-    }
-
-    @PostMapping("/guardarCliente")
-    public String guardarCliente(Cliente cliente) {
-        clienteService.save(cliente);
-        return "redirect:/";
-    }
-
-    @GetMapping("/modificarCliente/{idCliente}")
-    public String modificarCliente(Cliente cliente, Model model) {
-        cliente = clienteService.getCliente(cliente);
-        model.addAttribute("Cliente", cliente);
-        return "modificarCliente";
-    }
-
-    @GetMapping("/eliminarCliente/{idCliente}")
-    public String eliminarCliente(Cliente cliente) {
-        clienteService.delete(cliente);
-        return "redirect:/";
-    }
 }
